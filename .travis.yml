@@ -6,9 +6,7 @@ sudo: required
 #     - master
 
 services:
-  - rabbitmq
   - docker
-  - mongodb
 
 install:
   - npm install
@@ -22,6 +20,10 @@ jobs:
       before_install:
         - docker pull ansi/mosquitto
         - docker run -d -p 1883:1883 -l mosquitto ansi/mosquitto
+        - docker pull mongo
+        - docker run -d -p 27017:27017 -l mongodb mongo
+        - docker pull rabbitmq
+        - docker run -d -p 5672:5672   -l rabbitmq rabbitmq
 
       before_script:
         - npm run lint
@@ -36,6 +38,10 @@ jobs:
       before_install:
         - docker pull ansi/mosquitto
         - docker run -d -p 1883:1883 -l mosquitto ansi/mosquitto
+        - docker pull mongo
+        - docker run -d -p 27017:27017 -l mongodb mongo
+        - docker pull rabbitmq
+        - docker run -d -p 5672:5672   -l rabbitmq rabbitmq
 
       before_script:
         - npm run lint
@@ -50,6 +56,10 @@ jobs:
       before_install:
         - docker pull ansi/mosquitto
         - docker run -d -p 1883:1883 -l mosquitto ansi/mosquitto
+        - docker pull mongo
+        - docker run -d -p 27017:27017 -l mongodb mongo
+        - docker pull rabbitmq
+        - docker run -d -p 5672:5672   -l rabbitmq rabbitmq
 
       before_script:
         - npm run lint
