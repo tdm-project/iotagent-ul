@@ -1,9 +1,9 @@
 language: node_js
 sudo: required
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
 services:
   - rabbitmq
